@@ -1,0 +1,46 @@
+Problem Statement :- 
+
+Create a TestComparator Library that will be used by other teams. (In short- you have to write code to compare two http responses)
+.
+Detailed Requirements :
+1. you are given two files which has apis in the form of string, separated by new 
+line. All the apis are GET calls.
+
+eg. 
+
+File 1
+http://reqres.in/api/users?page=2
+http://reqres.in/api/users?page=3
+http://reqres.in/api/users?page=4
+
+File 2
+http://reqres.in/api/users?page=2
+http://reqres.in/api/users?page=4
+http://reqres.in/api/users?page=6
+
+Your TestComparator Library should be able to read both the files and compare their responses with each other by making http calls(read File1 line1 , File2 line1, then compare the responses of two rest calls and return true or false, and so on.......).
+
+
+output
+http://reqres.in/api/users?page=2 -------http://reqres.in/api/users?page=2  equal
+http://reqres.in/api/users?page=3---------http://reqres.in/api/users?page=4 not equal
+.
+.
+.
+.
+
+Additional criteria :
+
+1. The above apis return JSON. please consider XML responses as well. You library should be able to compare XML responses as well. (for json and xml comparison, use any open source libraries available. No need to write anything from scratch for these)
+
+2. Design pattern, data structures, function signatures are left upto you to decide. You can make assumptions on the function arguments, interfaces you use, as long the above problem is solved.
+
+Use case : when data migration happens (say from mysql to postgres/hbase, we might need to validate the api response with old data store and newly migrated data store.)
+
+. ***if possible , try to support when file sizes are 1GB. Design may change if the data is huge.
+
+
+
+Detailed Requirements :
+1. you are given two files which has apis in the form of string, separated by new 
+line. All the apis are GET calls.  file sizes are 1GB***. Try to run the comparator faster. (use threading if possible). 
